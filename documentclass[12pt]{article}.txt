@@ -1,0 +1,20 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\begin{document}
+
+\textbf{Economic History and Development Economics:}
+
+{\footnotesize \href{https://academic.oup.com/qje/article/134/3/1405/5484905}{The Effect of Minimum Wages on Low-Wage Jobs}, Doruk Cengiz, Arindrajit Dube, Attila Lindner, Ben Zipperer, \textit{The Quarterly Journal of Economics}, Published: 02 May 2019}
+
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \ite
+m \textbf{Objective:} Investigate the impact of minimum wage increases on employment levels in low-wage jobs.
+    \item \textbf{Methodology \& Instrument:} Utilization of regional employment data and econometric models to analyze employment trends.
+    \item \textbf{Reason:} To discern the real-world effects of wage policy changes on employment, distinct from theoretical predictions.
+    \item \textbf{Data:} Analysis of employment data from various sectors affected by minimum wage adjustments over a specified period.
+    \item \textbf{Results:} Demonstrates that minimum wage increases do not lead to the expected decrease in employment levels, challenging traditional economic theories.
+\end{itemize}
+
+\end{document}
