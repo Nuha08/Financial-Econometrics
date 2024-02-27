@@ -1,4 +1,4 @@
-README: Data Analysis Project
+Data Analysis Project : The Effect of Minimum Wages on Low-Wage Jobs
 Project Description
 This project explores a series of datasets to uncover insights within a specific area of study. Through rigorous data analysis techniques, we aim to identify patterns, trends, and relationships within the datasets. The analysis is conducted in Google Colab, utilizing Python for comprehensive data manipulation and visualization.
 
