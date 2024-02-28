@@ -1,0 +1,175 @@
+\documentclass[final]{beamer}
+\usepackage[size=a0,scale=1.4]{beamerposter}
+\usetheme{Berlin}
+\usecolortheme{rose}
+
+\usepackage{graphicx, amssymb, epstopdf, setspace, url, natbib, semtrans, comment, pdfpages, enumerate, float, tocloft, caption, fancyhdr, rotating, lscape, pdflscape, lipsum, pbox}
+\usepackage[english]{babel}
+\newcommand\fnote[1]{\captionsetup{font=footnotesize}\caption*{#1}}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{verbatim, multirow, threeparttable, colortbl, chngcntr, ragged2e, booktabs, tabularx, amsmath}
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+\newcommand{\sym}[1]{\rlap{#1}}
+\DeclareMathOperator*{\Max}{Max}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\usepackage{tabularray}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+\usepackage{threeparttable}
+\usepackage[font=small,labelfont=bf]{caption} 
+
+
+%\renewcommand{\thesection }{\Roman{section}.} 
+%\renewcommand{\thesubsection}{\thesection\Alph{subsection}.}
+\usepackage{tikz}
+
+\usepackage{tabularray}
+\usepackage[titletoc, title]{appendix}
+\usepackage{etoolbox}
+\patchcmd{\appendices}{\quad}{: }{}{}
+
+\usepackage{textcase}
+\usepackage[tablename=Table]{caption}
+%\DeclareCaptionTextFormat{up}{\MakeTextUppercase{#1}}
+%\captionsetup[table]{
+    %labelsep=newline,
+    %justification=centering,
+    %textformat=up,}
+\usepackage[figurename=Figure]{caption}
+%\DeclareCaptionTextFormat{up}{\MakeTextUppercase{#1}}
+%\captionsetup[figure]{
+    %labelsep=newline,
+    %justification=centering,
+    %textformat=up,}
+\usepackage{bbm}   
+
+\usepackage{subcaption}
+
+\renewcommand{\thetable}{\arabic{table}}
+\setcounter{table}{0}
+\renewcommand{\thefigure}{\arabic{figure}}
+\setcounter{figure}{0}
+
+% Custom style for highlighted blocks
+\setbeamercolor{highlighted block}{fg=black, bg=yellow} 
+
+\title{\Huge  (The Effect of Minimum Wages on Low-Wage Jobs)} % Very large title
+\author{\Large Nuha Alamri} % Larger author name
+\institute{\Large Texas A\&M University} % Larger institute name
+\date{\Large\today} % Larger date
+
+% Clearing the default footline
+\setbeamertemplate{footline}{} 
+
+\begin{document}
+\begin{frame}[t]
+
+% Title at the top
+\begin{block}{}
+\centering
+\maketitle
+\end{block}
+
+\begin{columns}[T] % align columns at the top
+
+% Column 1
+\begin{column}{.32\textwidth}
+    \begin{block}{\Huge Abstract} % Very large section title
+
+
+    \Large % Larger main text
+    The study investigates the effect of minimum wage increases on low-wage jobs in the U.S. from 1979 to 2016. It concludes that minimum wage hikes do not significantly affect the overall number of low-wage jobs but do lead to increases in average earnings at the bottom of the wage distribution, suggesting minimal disemployment effects from such policy changes.)
+    \end{block}
+
+    \vspace{1cm} % Add vertical space
+
+    \begin{block}{\Huge Introduction} % Very large section title
+    \Large % Larger main text
+    The report aims to explore the effects of minimum wage increases on low-wage employment in the United States from 1979 to 2016. It seeks to understand how these policy changes impact the number of low-wage jobs and average earnings at the lower end of the wage distribution. The project addresses the hypothesis that minimum wage increases do not significantly reduce low-wage employment but instead lead to higher average earnings without substantial disemployment effects.
+    
+    \end{block}
+
+    \vspace{1cm} % Add vertical space
+
+    \begin{block}{\Huge Literature Review} % Very large section title
+    \Large % Larger main text
+    The study builds on theories suggesting that minimum wage increases can boost low-income workers' earnings without significantly reducing employment. Previous research offers mixed findings, with some studies indicating potential disemployment effects, while others find minimal impact on job numbers. This project seeks to fill the gap by using a comprehensive dataset spanning several decades and a PSM approach to offer a nuanced analysis of how minimum wage policies affect low-wage employment across different wage bins, addressing inconsistencies in earlier studies.
+   
+    \end{block}
+\end{column}
+
+% Column 2
+\begin{column}{.32\textwidth}
+    \begin{block}{\Huge Methodology} % Highlighted block
+    \Large % Larger main text
+    Data for the study was sourced from Harvard Dataverse, utilizing a comprehensive collection of state-level minimum wage changes, employment records, and demographic information across the United States from 1979 to 2016. The analytical technique employed was Propensity Score Matching (PSM), an econometric method chosen for its effectiveness in estimating the causal impact of policy changes on employment outcomes by matching entities with similar characteristics across treated and control groups, thereby minimizing bias in the comparison of outcomes.
+    
+    \end{block}
+
+    \vspace{1cm} % Add vertical space
+
+    \begin{block}{\Huge Findings} % Highlighted block
+    \Large % Larger main text
+    the study shows average employment variations by wage bin following minimum wage adjustments, against total employment before the change.
+    \begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    bar width=20pt,
+    xlabel={Wage bins in \$ relative to new MW},
+    ylabel={Difference between actual and counterfactual employment count relative to the pretreatment employment},
+    symbolic x coords={-4,-2,0,2,4,6,8,10,12,14,16,17+},
+    xtick=data,
+    nodes near coords,
+    nodes near coords align={vertical},
+    ymin=-0.02, ymax=0.02,
+    legend style={at={(0.5,-0.15)},
+      anchor=north,legend columns=-1},
+]
+\addplot coordinates {(-4,0.01) (-2,-0.01) (0,0) (2,0.005) (4,0.003) (6,0.002) (8,0.0015) (10,0.001) (12,0.0005) (14,0.0002) (16,0.0001) (17+,0)};
+\addplot[red,sharp plot,update limits=false] 
+coordinates {(-4,0) (-2,0) (0,0) (2,0) (4,0) (6,0) (8,0) (10,0) (12,0) (14,0) (16,0) (17+,0)}
+node[above] at (axis cs:17+,0) {$\Delta a = 0.021 (0.003)$};
+\legend{Data,Fit}
+                                                  
+\end{axis}
+\end{tikzpicture}
+\end{block}
+\end{column}
+
+% Column 3
+\begin{column}{.32\textwidth}
+    \begin{block}{\Huge Discussion} % Very large section title
+    \Large % Larger main text
+    The figure summarizes the impact of minimum wage hikes on employment by wage categories, using data from 1979-2016. It shows average employment changes by wage bin after minimum wage changes, with a cumulative graph of these changes.
+   
+    \end{block}
+
+    \vspace{1cm} % Add vertical space
+
+    \begin{block}{\Huge Conclusions} % Very large section title
+    \Large % Larger main text
+    The study finds that minimum wage increases do not lead to significant job losses in low-wage positions and even boost earnings within this group. However, it also notes an increase in wage inequality between new entrants and incumbent workers. For further research, exploring the long-term effects of minimum wage changes on employment, wage distribution, and inequality, especially among different demographic groups, could provide deeper insights into optimizing minimum wage policies.
+    
+    \end{block}
+
+    \vspace{1cm} % Add vertical space
+
+    \begin{block}{\Huge References} % Very large section title
+    \Large % Larger main text
+    https://academic.oup.com/qje/article/134/3/1405/5484905?login=false#140161043  , https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJCTC7
+    
+    \end{block}
+
+    \vspace{1cm} % Add vertical space
+                                                  
+    \begin{block}{\Huge Appendix} % Very large section title
+    \Large % Larger main text
+https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/qje/134/3/10.1093_qje_qjz014/4/qjz014_supplemental_online_appendix.pdf?Expires=1712095577&Signature=bst8bxZqpRbikL4GTL2B1ZHW6GRQSbncA3fYvfheXYGOT9Nn0V0-pR9mHeGq1ls3SsPmUbwhNFTKM83omPDP~3JdzWM~QjTEQqaQOfuDLauuduRQz41wCGMRKlja-Hb8rQ8YrFDg6T~qSBmhP-H~aYwMKyrmBCp~wlppdlzhoLoVX5yh11dSmLJgMTEVjPoyi5y1gB6joBz88lHM7PkKn90WSI3KeyykT6eVgXA54XOH92JzE1PRBINk8eykbySAU~KKPz7Qdf0TNisV8k~SDxG5QKGvHmrwCFkZ2yWM2SMHzmlLeKUQgDCPJVvJABQU0vG1FlU2hHgYnr6NIctDhQ__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA
+    
+    \end{block}
+\end{column}
+
+\end{columns}
+    
+\end{frame}
+\end{document}
